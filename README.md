@@ -28,3 +28,7 @@ https://stable-baselines3.readthedocs.io/en/master/guide/install.html
 
 `pip install stable-baselines3[extra]`	
 
+## highway_env
+
+https://github.com/eleurent/highway-env
+
