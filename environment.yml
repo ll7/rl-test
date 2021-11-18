@@ -1,4 +1,9 @@
 name: rl-test
 channels:
   - defaults
+dependencies:
+  - torchaudio
+  - torchvision
+  - pytorch
+  - cudatoolkit=11.3
 prefix: /home/luttkule/anaconda3/envs/rl-test
