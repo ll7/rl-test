@@ -1,0 +1,4 @@
+name: rl-test
+channels:
+  - defaults
+prefix: /home/luttkule/anaconda3/envs/rl-test
