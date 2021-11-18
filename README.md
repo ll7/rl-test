@@ -28,7 +28,10 @@ https://stable-baselines3.readthedocs.io/en/master/guide/install.html
 
 `pip install stable-baselines3[extra]`	
 
-## highway_env
+### highway_env
 
 https://github.com/eleurent/highway-env
 
+## HER
+
+works https://stable-baselines3.readthedocs.io/en/master/guide/examples.html#hindsight-experience-replay-her
