@@ -6,4 +6,6 @@ dependencies:
   - torchvision
   - pytorch
   - cudatoolkit=11.3
-prefix: /home/luttkule/anaconda3/envs/rl-test
+  - pip:
+    - stable-baselines3[extra]
+    - highway-env
