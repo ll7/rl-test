@@ -6,6 +6,3 @@ dependencies:
   - torchvision
   - pytorch
   - cudatoolkit=11.3
-  - pip:
-    - stable-baselines3[extra]
-    - highway-env
