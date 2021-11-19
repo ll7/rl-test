@@ -1,2 +1,4 @@
 stable-baselines3[extra]
 highway-env
+pyglet
+gym[all]
