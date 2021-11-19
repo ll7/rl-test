@@ -22,6 +22,12 @@ cuda 11.3 for rtx 3070
 
 `conda install pytorch torchvision torchaudio cudatoolkit=11.3 -c pytorch`
 
+problems with sm_86
+
+`conda install pytorch torchvision torchaudio cudatoolkit=11.3 -c pytorch-nightly` could be helpful
+
+restart fixed the problem
+
 #### install via pip
 
 https://stable-baselines3.readthedocs.io/en/master/guide/install.html
