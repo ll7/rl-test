@@ -1,8 +1,11 @@
 name: rl-test
-channels:
-  - defaults
 dependencies:
-  - torchaudio
-  - torchvision
+  - python=3.9
   - pytorch
+  - torchvision
   - cudatoolkit=11.3
+  - pip # https://stackoverflow.com/questions/35245401/combining-conda-environment-yml-with-pip-requirements-txt
+  - pip:
+    - stable-baselines3[extra]
+    - highway-env
+

@@ -8,6 +8,20 @@
 `conda env create -f environment.yml`
 `conda env export --from-history > environment.yml`
 
+
+[update conda env from yml](https://stackoverflow.com/questions/42352841/how-to-update-an-existing-conda-environment-with-a-yml-file)
+
+```shell
+conda activate myenv
+conda env update --file local.yml --prune
+```
+
+or 
+
+```shell
+conda env update --name myenv --file local.yml --prune
+```
+
 ## stable baselines
 
 ### install

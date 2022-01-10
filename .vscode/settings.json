@@ -1,4 +1,4 @@
 {
-    "python.pythonPath": "/home/luttkule/anaconda3/envs/rl-test/bin/python",
+    "python.pythonPath": "/home/luttkule/anaconda3/bin/python",
     "restructuredtext.confPath": "${workspaceFolder}/docs/source"
 }
