@@ -1,4 +1,6 @@
 name: rl-test
+channels:
+  - pytorch-nightly
 dependencies:
   - python=3.9
   - pytorch
