@@ -160,3 +160,5 @@ tmp
 
 models
 logs
+.vscode/
+.vscode/settings.json
