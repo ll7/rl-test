@@ -8,10 +8,15 @@ dependencies:
   - torchvision
   - cudatoolkit=11.3
   - jupyterlab
+  - atari_py #  - ale_py
+  - swig # https://stackoverflow.com/questions/44198228/install-pybox2d-for-python-3-6-with-conda-4-3-21
+  - box2d-py
   - pip # https://stackoverflow.com/questions/35245401/combining-conda-environment-yml-with-pip-requirements-txt
   - pip:
     - stable-baselines3[extra]
+    - pyglet
     - highway-env
     - gym
     - pyglet
+    - gym[atari]
 
