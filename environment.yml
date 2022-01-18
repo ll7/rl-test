@@ -23,4 +23,5 @@ dependencies:
     - pyglet
     - gym[atari]
     - gym-anytrading
+    - vizdoom # https://github.com/mwydmuch/ViZDoom
 
