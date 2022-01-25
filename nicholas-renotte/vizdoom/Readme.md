@@ -1,0 +1,1 @@
+clone vzdoom in github/ViZDoom
