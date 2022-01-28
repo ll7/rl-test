@@ -14,7 +14,7 @@
 ```shell
 conda activate myenv
 conda env update --file local.yml --prune
-```a
+```
 
 or 
 
