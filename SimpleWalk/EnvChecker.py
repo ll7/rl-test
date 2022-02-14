@@ -20,3 +20,6 @@ for episode in range(1, episodes+1):
     logging.info('Score: {}'.format(score))
     env.render()
 env.close()
+
+from stable_baselines3.common import env_checker
+env_checker.check_env(env)

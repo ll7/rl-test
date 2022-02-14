@@ -36,17 +36,29 @@ class SimpleWalk2DDynGoal(Env):
         self.goal_boarder = 3.0
         
         # ensure that the goal can not walk out of the environment
-        self.goal_max_speed =  self.goal_boarder / self.max_steps * 0.9
+        self.goal_max_speed =  min(0.5 * self.width / (self.max_steps + 1), 0.9)
         
+        # set the distance when the goal is reached
         self.viable_goal_distance = 0.5
         
+        # set the max speed of the agent
+        self.agent_max_speed = 1.0
         
         # set spaces
-        self.action_space = Box(low=-1.0, high=1.0, shape=(2, )) # x and y change of position
+        self.action_space = Box(
+            low=-self.agent_max_speed, 
+            high=self.agent_max_speed, 
+            shape=(2, )
+            ) # x and y change of position
+        
+        # TODO must be extended to 4 goal elements. 2 current and 2 future
         self.observation_space = Box(low=self.x_min, high=self.x_max, shape=(4, )) # x,y position, x,y goal
         
         # safe past states in an array, safe x and y positions
         self.state = np.ndarray(shape=(4,), dtype=np.float32)
+        
+        # init goal direction
+        self.goal_direction = np.array([0.0, 0.0])
         
         
     def __out_of_bounds(self):
@@ -63,10 +75,24 @@ class SimpleWalk2DDynGoal(Env):
         self.state_array[0].append(self.state[0])
         self.state_array[1].append(self.state[1])
         
+    def __append_goal(self):
+        self.goal_array[0].append(self.state[2])
+        self.goal_array[1].append(self.state[3])
+        
     def __distance_to_goal(self):
         distance_to_goal = np.linalg.norm(self.state[0:2] - self.state[2:4])
         return distance_to_goal     
         
+    def __goal_direction(self):
+        """calculate direction from init goal position through the middle of the env for the goal"""
+        # calculate the center of the environment
+        center_point = self.x_min + self.width / 2
+        
+        # calculate the direction from the goal to the center of the environment
+        direction = np.array([center_point, center_point]) - np.array(self.state[2:4])
+        
+        # set the direction for the goal movement
+        self.goal_direction = direction / np.linalg.norm(direction) # TODO check for devision by zero
     
     def step(self, action):
         previous_state = self.state
@@ -105,6 +131,12 @@ class SimpleWalk2DDynGoal(Env):
             reward = movement * 50
             done = False
         
+        # multiply the goal direction by the max goal speed and apply to goal for movement
+        self.state[2:4] += self.goal_direction * self.goal_max_speed
+        
+        # save the goal movement
+        self.__append_goal()
+        
         # update distance to goal
         self.distance_to_goal = distance_to_goal
         info = {'distance_to_goal': self.distance_to_goal, 
@@ -127,10 +159,25 @@ class SimpleWalk2DDynGoal(Env):
             size=(2,)
             )
         
+        # empty array for saving all visited states
         self.state_array = [[], []] # x, y
+        
+        # empty array for all movements of the goal
+        self.goal_array = [[], []] # x, y
+        
+        # init append state and goal
         self.__append_state()
+        self.__append_goal()
+        
+        
+        self.__goal_direction()
+        
+        # reset steps taken
         self.steps_taken = 0
+        
+        # estimate distance to goal
         self.distance_to_goal = self.__distance_to_goal()
+        
         return self.state
     
     def render(self):
@@ -146,12 +193,15 @@ class SimpleWalk2DDynGoal(Env):
         fig, ax = plt.subplots()
 
         # plot the visited states
-        ax.plot(self.state_array[0], self.state_array[1], linewidth=2.0)
+        ax.plot(self.state_array[0], self.state_array[1], linewidth=1.0, marker='o', color='b', markersize=1.0)
         
         # plot the goal
-        ax.plot(goal[0], goal[1], 'ro')
-        circle1 = plt.Circle((goal[0], goal[1]), 1, color='r', fill=False)
+        # ax.plot(goal[0], goal[1], 'ro')
+        circle1 = plt.Circle((goal[0], goal[1]), self.viable_goal_distance, color='r', fill=False)
         ax.add_patch(circle1)
+        # TODO add trajectory of the goal
+        ax.plot(self.goal_array[0], self.goal_array[1], linewidth=1.0, color='r', marker='*', markersize=1.0)
+        
         ax.set(
             xlim=(self.x_min, self.x_max), #xticks=np.arange(1, 8),
             ylim=(self.x_min, self.x_max), #yticks=np.arange(1, 8))
