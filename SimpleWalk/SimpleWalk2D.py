@@ -157,7 +157,7 @@ class SimpleWalk2DDynGoal(Env):
             movement = self.distance_to_goal - distance_to_goal
             logging.debug("movement: {}".format(movement))
             # reward a movement towards the goal
-            reward = movement * 50 - 100
+            reward = movement * 80 - 100
             done = False
 
             # update everything
@@ -187,7 +187,7 @@ class SimpleWalk2DDynGoal(Env):
                 
                 self.angle = self.__calculate_angle(previous_direction, now_direction)
                 logging.debug("angle: {}".format(self.angle))
-                reward -= abs(self.angle / math.pi) * 10 # penalty of zero to 100
+                reward -= abs(self.angle / math.pi) * 5 # penalty of zero to 100
             
         
         info = {'distance_to_goal': self.distance_to_goal, 
