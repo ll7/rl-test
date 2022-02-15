@@ -3,12 +3,8 @@ import logging
 from stable_baselines3 import PPO
 from stable_baselines3.common.callbacks import BaseCallback
 
-logger = logging.getLogger()
-logger.setLevel(logging.DEBUG)
-
 from SimpleWalk2D import SimpleWalk2DDynGoal
 
-env = SimpleWalk2DDynGoal()
 
 class TrainAndLoggingCallback(BaseCallback):
     
@@ -28,31 +24,43 @@ class TrainAndLoggingCallback(BaseCallback):
             
         return True
 
-env_name = 'SW2DDynGoal'
+def main():
 
-CHECKPOINT_DIR = './train/train_' + env_name
-LOG_DIR = './train/log_' + env_name
-
-callback = TrainAndLoggingCallback(check_freq=10_000, save_path=CHECKPOINT_DIR)
-
-log_path = os.path.join('Training', 'Logs')
-
-model = PPO(
-    "MlpPolicy", 
-    env, 
-    verbose=1, 
-    tensorboard_log=log_path,
-    learning_rate=0.001,
-    n_steps =256
-    )
-logger.setLevel(logging.INFO)
-
-model.learn(
-    total_timesteps=100_000, 
-    callback = callback
-    )
-
-model.save('PPO')
-logger.setLevel(logging.DEBUG)
+    logger = logging.getLogger()
+    logger.setLevel(logging.DEBUG)
 
 
+
+    env = SimpleWalk2DDynGoal()
+
+
+
+    env_name = 'SW2DDynGoal'
+
+    CHECKPOINT_DIR = './train/train_' + env_name
+    LOG_DIR = './train/log_' + env_name
+
+    callback = TrainAndLoggingCallback(check_freq=10_000, save_path=CHECKPOINT_DIR)
+
+    log_path = os.path.join('Training', 'Logs')
+
+    model = PPO(
+        "MlpPolicy", 
+        env, 
+        verbose=1, 
+        tensorboard_log=log_path,
+        learning_rate=0.001,
+        n_steps =256
+        )
+    logger.setLevel(logging.DEBUG)
+
+    model.learn(
+        total_timesteps=100_000, 
+        callback = callback
+        )
+
+    model.save('PPO')
+    logger.setLevel(logging.DEBUG)
+
+if __name__ == '__main__':
+    main()
