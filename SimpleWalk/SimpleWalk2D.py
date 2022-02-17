@@ -112,8 +112,8 @@ class SimpleWalk2DDynGoal(Env):
         logging.debug("vector 1: {}".format(vector_1))
         logging.debug("vector 2: {}".format(vector_2))
 
-        unit_vector_1 = vector_1 / np.linalg.norm(vector_1)
-        unit_vector_2 = vector_2 / np.linalg.norm(vector_2)
+        unit_vector_1 = vector_1 / vector_1_length
+        unit_vector_2 = vector_2 / vector_2_length
 
         dot_product = np.clip(
             np.dot(unit_vector_1, unit_vector_2), 
