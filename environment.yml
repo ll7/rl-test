@@ -25,4 +25,5 @@ dependencies:
     - gym-anytrading
     - gym-retro # https://youtu.be/rzbFhu6So5U?t=245
     # - vizdoom # https://github.com/mwydmuch/ViZDoom
+    - optuna # https://optuna.org/
 
