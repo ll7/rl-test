@@ -27,4 +27,5 @@ dependencies:
     # - vizdoom # https://github.com/mwydmuch/ViZDoom
     - optuna # https://optuna.org/
     - snooty-lextudio # https://github.com/vscode-restructuredtext/vscode-restructuredtext/issues/283#issuecomment-792139136
+    - joblib # https://optuna.readthedocs.io/en/stable/faq.html#how-can-i-save-and-resume-studies
 
