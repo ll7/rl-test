@@ -106,7 +106,8 @@ class SimpleWalk2DDynGoal(Env):
         vector_2_length = np.linalg.norm(vector_2)
         
         if (vector_1_length == 0.0) or (vector_2_length == 0.0):
-            """if one of the vectors is zero, the angle is undefined"""
+            """if one of the vectors is zero, the angle is undefined
+            we return 0.0 in this unlikely edge case"""
             return 0.0
         
         logging.debug("vector 1: {}".format(vector_1))
