@@ -25,4 +25,9 @@ dependencies:
     - gym-anytrading
     - gym-retro # https://youtu.be/rzbFhu6So5U?t=245
     # - vizdoom # https://github.com/mwydmuch/ViZDoom
-
+    - optuna # https://optuna.org/
+    - snooty-lextudio # https://github.com/vscode-restructuredtext/vscode-restructuredtext/issues/283#issuecomment-792139136
+    - joblib # https://optuna.readthedocs.io/en/stable/faq.html#how-can-i-save-and-resume-studies
+    - plotly # https://optuna.readthedocs.io/en/stable/reference/visualization/index.html#optuna-visualization
+    - ipywidgets # https://github.com/plotly/plotly.py#jupyterlab-support
+    - scikit-learn
