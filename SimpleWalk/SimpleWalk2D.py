@@ -100,11 +100,12 @@ class SimpleWalk2DDynGoal(Env):
     def __calculate_angle(self, vector_1, vector_2):
         """calculate the angle between two vectors in radians"""
         # https://www.kite.com/python/answers/how-to-get-the-angle-between-two-vectors-in-python
-        # TODO catch length of zero vectors
+        
         
         vector_1_length = np.linalg.norm(vector_1)
         vector_2_length = np.linalg.norm(vector_2)
         
+        # catch length of zero vectors
         if (vector_1_length == 0.0) or (vector_2_length == 0.0):
             """if one of the vectors is zero, the angle is undefined"""
             return 0.0
