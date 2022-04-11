@@ -162,3 +162,6 @@ models
 logs
 .vscode/
 .vscode/settings.json
+
+*.pkl
+*.joblib
