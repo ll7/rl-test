@@ -94,8 +94,12 @@ class SimpleWalk2DDynGoal(Env):
         # calculate the direction from the goal to the center of the environment
         direction = np.array([center_point, center_point]) - np.array(self.state[2:4])
         
-        # set the direction for the goal movement
-        self.goal_direction = direction / np.linalg.norm(direction) # TODO check for devision by zero
+        if np.linalg.norm(direction) == 0.0:
+            # return 0, if vector is zero
+            self.goal_direction = 0.0
+        else:
+            # set the direction for the goal movement
+            self.goal_direction = direction / np.linalg.norm(direction)
         
     def __calculate_angle(self, vector_1, vector_2):
         """calculate the angle between two vectors in radians"""
@@ -107,7 +111,8 @@ class SimpleWalk2DDynGoal(Env):
         
         # catch length of zero vectors
         if (vector_1_length == 0.0) or (vector_2_length == 0.0):
-            """if one of the vectors is zero, the angle is undefined"""
+            """if one of the vectors is zero, the angle is undefined
+            we return 0.0 in this unlikely edge case"""
             return 0.0
         
         logging.debug("vector 1: {}".format(vector_1))
