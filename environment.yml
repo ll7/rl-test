@@ -24,4 +24,8 @@ dependencies:
     - gym[atari]
     - gym-anytrading
     - vizdoom # https://github.com/mwydmuch/ViZDoom
+    - protobuf
+    - mss
+    - pydirectinput
+    - pytesseract
 
