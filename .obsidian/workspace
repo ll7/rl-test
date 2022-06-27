@@ -1,0 +1,96 @@
+{
+  "main": {
+    "id": "51d837f085c0ba6f",
+    "type": "split",
+    "children": [
+      {
+        "id": "3a4cd6dbc3863729",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "nicholas-renotte/DINO-AI/README.md",
+            "mode": "source",
+            "source": false
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "3caac2b9c51b5e1c",
+    "type": "split",
+    "children": [
+      {
+        "id": "091bc97d2d4f48ad",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "55f737d047e2b125",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "5f94839dd37dbe80",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "b4d740e2e75da321",
+    "type": "split",
+    "children": [
+      {
+        "id": "2f40b1dbc7259b9c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "edd4628fc9b22598",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "nicholas-renotte/DINO-AI/README.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "3a4cd6dbc3863729",
+  "lastOpenFiles": [
+    "nicholas-renotte/DINO-AI/README.md",
+    "docs/README.md",
+    "README.md"
+  ]
+}
