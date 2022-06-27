@@ -1,0 +1,17 @@
+version: '3'
+services:
+  rl-test:
+    build:
+      dockerfile: Dockerfile
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities:
+                - [gpu]
+    environment:
+      - DISPLAY=$DISPLAY
+    networks:
+      - host

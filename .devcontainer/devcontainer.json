@@ -1,3 +1,39 @@
 {
-    "dockerFile": "Dockerfile"
+  "name": "rl-test",
+  "dockerFile": "docker/Dockerfile",
+  "runArgs": ["--gpus", "all"],
+	// Configure tool-specific properties.
+	"customizations": {
+		// Configure properties specific to VS Code.
+		"vscode": {
+			// Set *default* container specific settings.json values on container create.
+			"settings": { 
+				"python.defaultInterpreterPath": "/opt/conda/bin/python",
+				"python.linting.enabled": true,
+				"python.linting.pylintEnabled": true,
+				"python.formatting.autopep8Path": "/opt/conda/bin/autopep8",
+				"python.formatting.yapfPath": "/opt/conda/bin/yapf",
+				"python.linting.flake8Path": "/opt/conda/bin/flake8",
+				"python.linting.pycodestylePath": "/opt/conda/bin/pycodestyle",
+				"python.linting.pydocstylePath": "/opt/conda/bin/pydocstyle",
+				"python.linting.pylintPath": "/opt/conda/bin/pylint"
+			},
+			
+			// Add the IDs of extensions you want installed when the container is created.
+			"extensions": [
+				"ms-python.python",
+				"ms-python.vscode-pylance",
+        "Gruntfuggly.todo-tree",
+        "GitHub.copilot",
+        "GitHub.vscode-pull-request-github",
+        "ms-toolsai.jupyter",
+        "mhutchie.git-graph",
+        "tomoki1207.pdf",
+        "donjayamanne.python-extension-pack",
+        "almenon.arepl",
+        "ms-toolsai.jupyter",
+			]
+		}
+  },
+  "remoteUser": "vscode",
   }
