@@ -21,13 +21,13 @@ dependencies:
     - highway-env
     - gym
     - pyglet
-    - gym[atari]
-    - gym-anytrading
-    - protobuf
+    # - gym[atari]
+    # - gym-anytrading
+    - protobuf==3.20.*
     - mss
     - pydirectinput
     - pytesseract
-    - gym-retro # https://youtu.be/rzbFhu6So5U?t=245
+    # - gym-retro # https://youtu.be/rzbFhu6So5U?t=245
     # - vizdoom # https://github.com/mwydmuch/ViZDoom
     - optuna # https://optuna.org/
     - snooty-lextudio # https://github.com/vscode-restructuredtext/vscode-restructuredtext/issues/283#issuecomment-792139136
