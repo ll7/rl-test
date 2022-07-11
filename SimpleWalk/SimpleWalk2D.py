@@ -16,9 +16,12 @@ logging.getLogger('matplotlib.font_manager').disabled = True # disable font warn
 
 
 class SimpleWalk2DDynGoal(Env):
-    """simple walk environment in 2D with a continuous action and state space"""
+    """
+    simple walk environment in 2D with a continuous action and state space
+    """
     def __init__(self):
-        """Initialize the environment
+        """
+        Initialize the environment
         Big square as the environment and sub squares as the goal"""
         
         # set the dimensions of the environment
